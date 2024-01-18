@@ -160,6 +160,7 @@ export async function fetchInvoiceById(id: string) {
   noStore();
 
   try {
+    
     const data = await sql<InvoiceForm>`
       SELECT
         invoices.id,
@@ -170,16 +171,23 @@ export async function fetchInvoiceById(id: string) {
       WHERE invoices.id = ${id};
     `;
 
+    console.log(data.rows);
+
+    if(data.rows.length === 0){
+      return [];
+    }
     const invoice = data.rows.map((invoice) => ({
       ...invoice,
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
 
+    console.log(invoice); 
     return invoice[0];
   } catch (error) {
+    //console.log(data.rows);
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch invoice.');
+    throw new Error('Failed to fetch invoice!!!');
   }
 }
 
