@@ -1,6 +1,6 @@
 export  default function page(){
     return <>
-        <h1 className="text-blue-500">I'm blue!</h1>
+        <h1 className="text-blue-500">I&apos;m blue!</h1>
         <hr/>
         <div className="p-6 max-w-sm mx-auto bg-pink-400 rounded-xl shadow-lg flex items-center space-x-4">
             <div className="shrink-0">
