@@ -7,8 +7,10 @@ import { notFound } from 'next/navigation';
  
 export default async function Page({params}:{params: {id: string}}) {
 
+
     //notFound();
-    //console.log(1223);
+    //return ;
+    //console.log(params.id);
     //return;
     const id = params.id;
 
@@ -18,7 +20,7 @@ export default async function Page({params}:{params: {id: string}}) {
       ]);
 
       if (!invoice) {
-        console.log(123);
+        //console.log(123);
         notFound();
       }
   return (
