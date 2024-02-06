@@ -120,7 +120,7 @@ export async function updateInvoice(
 
   const amountInCents = Math.round(amount * 100);
 
-  //console.log(id,customerId,amountInCents,status,amount,amount * 100);
+  console.log(id,customerId,amountInCents,status,amount,amount * 100);
   //return ;
   //revalidatePath('/dashboard/invoices');
   //redirect('/dashboard/invoices');

@@ -1,4 +1,6 @@
 import { Revenue } from './definitions';
+import dayjs from 'dayjs';
+
 
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-US', {
@@ -8,16 +10,19 @@ export const formatCurrency = (amount: number) => {
 };
 
 export const formatDateToLocal = (
-  dateStr: string,
+  dateStr: Date,
   locale: string = 'en-US',
 ) => {
+  //console.log(dateStr.toISOString());
+  //return dayjs(dateStr).format('YYYY-MM-DD');
+  //return dateStr.toISOString().split('T')[0];
   const date = new Date(dateStr);
   const options: Intl.DateTimeFormatOptions = {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
   };
-  const formatter = new Intl.DateTimeFormat(locale, options);
+  const formatter = new Intl.DateTimeFormat(locale,options);
   return formatter.format(date);
 };
 
